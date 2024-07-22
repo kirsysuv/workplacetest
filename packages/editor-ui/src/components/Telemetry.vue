@@ -61,7 +61,7 @@ onMounted(() => {
 function init() {
 	if (isTelemetryInitialized.value || !isTelemetryEnabledOnRoute.value || !isTelemetryEnabled.value)
 		return;
-
+	return;
 	telemetryPlugin.init(telemetry.value, {
 		instanceId: rootStore.instanceId,
 		userId: currentUserId.value,

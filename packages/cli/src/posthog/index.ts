@@ -12,6 +12,7 @@ export class PostHogClient {
 	constructor(private readonly instanceSettings: InstanceSettings) {}
 
 	async init() {
+		return;
 		const enabled = config.getEnv('diagnostics.enabled');
 		if (!enabled) {
 			return;
@@ -24,7 +25,7 @@ export class PostHogClient {
 
 		const logLevel = config.getEnv('logs.level');
 		if (logLevel === 'debug') {
-			this.postHog.debug(true);
+			//this.postHog.debug(true);
 		}
 	}
 

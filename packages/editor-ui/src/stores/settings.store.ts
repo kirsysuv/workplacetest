@@ -166,6 +166,12 @@ export const useSettingsStore = defineStore(STORES.SETTINGS, () => {
 
 	const setSettings = (newSettings: IN8nUISettings) => {
 		settings.value = newSettings;
+		settings.value.enterprise.variables = true;
+		settings.value.enterprise.workflowHistory = true;
+		settings.value.enterprise.externalSecrets = true;
+		settings.value.enterprise.debugInEditor = true;
+		settings.value.posthog.apiKey='';
+		settings.value.telemetry.config = { url: '', key: '' };
 		userManagement.value = newSettings.userManagement;
 		if (userManagement.value) {
 			userManagement.value.showSetupOnFirstLoad =
