@@ -50,6 +50,7 @@ export class Telemetry {
 	) {}
 
 	async init() {
+		return;
 		const enabled = config.getEnv('diagnostics.enabled');
 		if (enabled) {
 			const conf = config.getEnv('diagnostics.config.backend');
