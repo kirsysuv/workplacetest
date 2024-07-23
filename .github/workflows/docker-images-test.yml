@@ -2,6 +2,11 @@ name: Docker Image CI
 
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to build this image with.'
+        type: string
+        required: true
 
 jobs:
   build:
@@ -36,5 +41,4 @@ jobs:
           provenance: false
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/n8n:${{ steps.vars.outputs.tag }}
-            ghcr.io/${{ github.repository_owner }}/n8n:${{ steps.vars.outputs.tag }}
+            ${{ secrets.DOCKER_USERNAME }}/n8n:${{ github.event.inputs.tag }}
