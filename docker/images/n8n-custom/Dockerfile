@@ -29,7 +29,7 @@ ENV N8N_RELEASE_TYPE=${N8N_RELEASE_TYPE}
 
 WORKDIR /home/node
 COPY --from=builder /compiled /usr/local/lib/node_modules/n8n
-COPY ../n8n/docker-entrypoint.sh /
+COPY docker-entrypoint.sh /
 
 RUN \
 	cd /usr/local/lib/node_modules/n8n && \
