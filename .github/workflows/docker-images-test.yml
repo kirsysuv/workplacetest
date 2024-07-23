@@ -41,4 +41,4 @@ jobs:
           provenance: false
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/n8n:${{ github.event.inputs.tag }}
+            ${{ secrets.DOCKER_USERNAME }}/wok:${{ github.event.inputs.tag }}
