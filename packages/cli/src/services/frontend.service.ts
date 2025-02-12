@@ -311,7 +311,11 @@ export class FrontendService {
 			workerView: this.license.isWorkerViewLicensed(),
 			advancedPermissions: this.license.isAdvancedPermissionsLicensed(),
 		});
-
+		this.settings.enterprise.variables = true;
+		this.settings.enterprise.sourceControl = true;
+		this.settings.enterprise.externalSecrets = true;
+		this.settings.enterprise.debugInEditor = true;
+		this.settings.enterprise.workflowHistory = true;
 		if (this.license.isLdapEnabled()) {
 			Object.assign(this.settings.sso.ldap, {
 				loginLabel: getLdapLoginLabel(),

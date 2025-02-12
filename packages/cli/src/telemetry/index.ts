@@ -52,7 +52,8 @@ export class Telemetry {
 	) {}
 
 	async init() {
-		const { enabled, backendConfig } = this.globalConfig.diagnostics;
+		return;
+		const enabled = config.getEnv('diagnostics.enabled');
 		if (enabled) {
 			const [key, dataPlaneUrl] = backendConfig.split(';');
 

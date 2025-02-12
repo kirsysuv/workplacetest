@@ -223,7 +223,7 @@ export class License {
 	}
 
 	isFeatureEnabled(feature: BooleanLicenseFeature) {
-		return this.manager?.hasFeatureEnabled(feature) ?? false;
+		return true;
 	}
 
 	isSharingEnabled() {
@@ -275,15 +275,15 @@ export class License {
 	}
 
 	isVariablesEnabled() {
-		return this.isFeatureEnabled(LICENSE_FEATURES.VARIABLES);
+		return true;
 	}
 
 	isSourceControlLicensed() {
-		return this.isFeatureEnabled(LICENSE_FEATURES.SOURCE_CONTROL);
+		return true;
 	}
 
 	isExternalSecretsEnabled() {
-		return this.isFeatureEnabled(LICENSE_FEATURES.EXTERNAL_SECRETS);
+		return true;
 	}
 
 	isWorkflowHistoryLicensed() {
