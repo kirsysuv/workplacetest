@@ -53,32 +53,32 @@ export class Telemetry {
 
 	async init() {
 		return;
-		const enabled = config.getEnv('diagnostics.enabled');
-		if (enabled) {
-			const [key, dataPlaneUrl] = backendConfig.split(';');
+		// const { enabled, backendConfig } = this.globalConfig.diagnostics;
+		// if (enabled) {
+		// 	const [key, dataPlaneUrl] = backendConfig.split(';');
 
-			if (!key || !dataPlaneUrl) {
-				this.logger.warn('Diagnostics backend config is invalid');
-				return;
-			}
+		// 	if (!key || !dataPlaneUrl) {
+		// 		this.logger.warn('Diagnostics backend config is invalid');
+		// 		return;
+		// 	}
 
-			const logLevel = this.globalConfig.logging.level;
+		// 	const logLevel = this.globalConfig.logging.level;
 
-			const { default: RudderStack } = await import('@rudderstack/rudder-sdk-node');
-			const axiosInstance = axios.create();
-			axiosInstance.interceptors.request.use((cfg) => {
-				cfg.headers.setContentType('application/json', false);
-				return cfg;
-			});
-			this.rudderStack = new RudderStack(key, {
-				axiosInstance,
-				logLevel,
-				dataPlaneUrl,
-				gzip: false,
-			});
+		// 	const { default: RudderStack } = await import('@rudderstack/rudder-sdk-node');
+		// 	const axiosInstance = axios.create();
+		// 	axiosInstance.interceptors.request.use((cfg) => {
+		// 		cfg.headers.setContentType('application/json', false);
+		// 		return cfg;
+		// 	});
+		// 	this.rudderStack = new RudderStack(key, {
+		// 		axiosInstance,
+		// 		logLevel,
+		// 		dataPlaneUrl,
+		// 		gzip: false,
+		// 	});
 
-			this.startPulse();
-		}
+		// 	this.startPulse();
+		// }
 	}
 
 	private startPulse() {

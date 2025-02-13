@@ -17,20 +17,20 @@ export class PostHogClient {
 
 	async init() {
 		return;
-		const enabled = config.getEnv('diagnostics.enabled');
-		if (!enabled) {
-			return;
-		}
+		// const { enabled, posthogConfig } = this.globalConfig.diagnostics;
+		// if (!enabled) {
+		// 	return;
+		// }
 
-		const { PostHog } = await import('posthog-node');
-		this.postHog = new PostHog(posthogConfig.apiKey, {
-			host: posthogConfig.apiHost,
-		});
+		// const { PostHog } = await import('posthog-node');
+		// this.postHog = new PostHog(posthogConfig.apiKey, {
+		// 	host: posthogConfig.apiHost,
+		// });
 
-		const logLevel = this.globalConfig.logging.level;
-		if (logLevel === 'debug') {
-			//this.postHog.debug(true);
-		}
+		// const logLevel = this.globalConfig.logging.level;
+		// if (logLevel === 'debug') {
+		// 	//this.postHog.debug(true);
+		// }
 	}
 
 	async stop(): Promise<void> {
